@@ -20,6 +20,10 @@ const User = mongoose.model(
                 type: String,
                 required: true
             },
+            tipoUsuario: {
+                type: String,
+                required: true
+            },
             comentarios: [],
         },
         {

@@ -45,7 +45,8 @@ module.exports = class UserController {
             nome,
             contato,
             email,
-            senha: passwordHash
+            senha: passwordHash,
+            tipoUsuario: "cliente"
         });
 
         try {

@@ -17,11 +17,13 @@ const UserRoutes = require('./routes/UserRoutes');
 const CommentRoutes = require("./routes/CommentRoutes");
 const GalleryRoutes = require("./routes/GalleryRoutes");
 const SchedulingRoutes = require("./routes/SchedulingRoutes");
+const ServicesRoutes = require("./routes/ServiceRoutes");
 
 app.use("/user", UserRoutes);
 app.use("/comment", CommentRoutes);
 app.use("/gallery", GalleryRoutes);
 app.use("/schedule", SchedulingRoutes);
+app.use("/servicos", ServicesRoutes);
 
 app.listen(5000, () => {
     console.log("Server running on port 5000");
