@@ -1,5 +1,7 @@
 .editarInfos {
     display: grid;
+    padding: 2rem;
+    background: #fff;
 }
 
 .editarInfos a {

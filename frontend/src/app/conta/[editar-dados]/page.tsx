@@ -15,7 +15,7 @@ export default async function EditarDadosPage() {
     const info = data as Usuario;
 
     return (
-        <section className={"container mainContainer animeLeft"}>
+        <section className={"container animeLeft"}>
             <div className={styles.editarInfos}>
                 <Link href={"/conta"}>voltar</Link>
                 <h1 className={"title"}>Editar Dados</h1>

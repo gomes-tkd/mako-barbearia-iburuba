@@ -9,6 +9,7 @@ body {
   --type-first: var(--type-first-roboto), Arial, sans-serif;
   --type-second: var(--type-second-spectral), Georgia;
   font-family: var(--type-first);
+  background: #efefef;
 }
 
 h1,

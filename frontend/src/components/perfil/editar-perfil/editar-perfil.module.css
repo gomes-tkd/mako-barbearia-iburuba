@@ -2,10 +2,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    background: #fff;
+    padding: 2rem 2rem 10rem;
 }
 
 .formularioEditarSenha {
     grid-column: span 2;
+}
+
+.formularioEditar form {
+    border: 1px solid #fb1;
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 @media (max-width: 40rem) {

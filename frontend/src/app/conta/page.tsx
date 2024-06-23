@@ -15,7 +15,7 @@ export default async function ContaPage() {
     const { data } = await getUser();
     const usuario = (data as UsuarioInfo);
     return (
-        <section className={"container mainContainer animeLeft"}>
+        <section className={"container animeLeft"}>
             <div className={styles.contaInfo}>
                 <h1 className={"title"}>Perfil</h1>
                 <Link href={"/conta/editar-dados"}>Editar dados</Link>
