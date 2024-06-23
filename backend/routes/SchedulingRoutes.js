@@ -4,7 +4,7 @@ const SchedulingController = require("../controller/SchedulingController");
 
 routes.post("/:id/agendar", verifyToken, SchedulingController.scheduling);
 
-routes.delete("/:id", verifyToken, SchedulingController.removeScheduling);
+routes.delete("/:id/deletar/:idAgendamento", verifyToken, SchedulingController.removeScheduling);
 
 routes.get("/:id/adm", verifyToken, SchedulingController.getAllScheduling);
 routes.get("/:id/cliente", verifyToken, SchedulingController.getSchedulingById);

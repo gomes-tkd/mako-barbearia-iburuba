@@ -65,41 +65,43 @@ module.exports = class SchedulingController {
     }
 
     static async removeScheduling(req, res) {
-        // check if id exists
-        const id = req.params.id;
-
-        if (!ObjectId.isValid(id)) {
-            res.status(422).json({ message: "Invalid ID "});
-            return false;
-        }
-
-        // check if scheduling exists
-        const scheduling = await Scheduling.findOne({ _id: id });
-
-        if(!scheduling) {
-            res.status(404).json({ message: "Appointment not found "});
-            return false;
-        }
-
+        const userId = req.params.id;
+        const schedulingId = req.params.idAgendamento;
         const token = getToken(req);
-        const user = await getUserByToken(token);
 
-        // check if scheduling id is the same of user
-        if(scheduling.clientId.toString() !== user._id.toString()) {
-            res.status(422).json({ message: "não was possible to process your solicitation"});
+        if (!token) {
+            return res.status(401).json({ message: "Acesso negado!" });
+        }
+
+        if (!ObjectId.isValid(userId) || !ObjectId.isValid(schedulingId)) {
+            return res.status(422).json({ message: "ID de usuário ou agendamento inválido." });
         }
 
         try {
-            await Scheduling.findByIdAndDelete(id);
-            res.status(200).json({ message: "Appointment removed with success" });
+            const user = await User.findById(userId);
+            if (!user) {
+                return res.status(404).json({ message: "Usuário não encontrado." });
+            }
 
-            return true;
-        } catch (e) {
-            console.log(e.message);
-            return false;
+            const agendamento = await Scheduling.findById(schedulingId);
+
+            if (!agendamento) {
+                return res.status(404).json({ message: "Agendamento não encontrado." });
+            }
+
+            if (agendamento.clienteId.toString() !== userId) {
+                return res.status(403).json({ message: "Acesso não autorizado." });
+            }
+
+            await Scheduling.findByIdAndDelete(schedulingId);
+
+            res.status(200).json({ message: "Agendamento deletado com sucesso." });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: "Erro ao deletar agendamento.", error: error.message });
         }
-
     }
+
 
     static async getAllScheduling(req, res)
     {
