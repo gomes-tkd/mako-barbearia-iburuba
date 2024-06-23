@@ -1,0 +1,47 @@
+.perfilInfo {
+    display: grid;
+    padding: 1rem 0.5rem;
+    align-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 48rem)  {
+    .perfilInfo h2 {
+        font-size: 2rem;
+    }
+
+    .perfilInfo p {
+        font-size: 1.25rem;
+    }
+
+    .perfilInfo h2,
+    .perfilInfo p {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 30rem) {
+    .perfilInfo h2 {
+        font-size: 1.8rem;
+    }
+
+    .perfilInfo p {
+        font-size: 1.125rem;
+    }
+
+    .perfilInfo h2,
+    .perfilInfo p {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 30rem) {
+    .perfilInfo h2 {
+        font-size: 1.125rem;
+    }
+
+    .perfilInfo p {
+        font-size: 0.875rem;
+    }
+
+}

@@ -1,0 +1,23 @@
+.editarInfos {
+    display: grid;
+}
+
+.editarInfos a {
+    place-self: start;
+    position: relative;
+}
+
+.editarInfos a:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #fb1;
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.editarInfos a:hover:after {
+    width: 100%;
+}

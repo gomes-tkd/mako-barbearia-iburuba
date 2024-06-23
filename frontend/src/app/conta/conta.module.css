@@ -1,0 +1,45 @@
+.contaInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.contaInfo a {
+    grid-column: 2;
+    place-self: center end;
+    position: relative;
+}
+
+.contaInfo a:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #fb1;
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.contaInfo a:hover:after {
+    width: 100%;
+}
+
+.calendarioAgendamento,
+.agendamentoLista {
+    grid-column: span 2;
+}
+
+
+@media (max-width: 48rem) {
+    .contaInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .contaInfo a {
+        place-self: start;
+    }
+}

@@ -1,0 +1,19 @@
+.formularioEditar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.formularioEditarSenha {
+    grid-column: span 2;
+}
+
+@media (max-width: 40rem) {
+    .formularioEditar {
+        grid-template-columns: 1fr;
+    }
+
+    .formularioEditarSenha {
+        grid-column: 1;
+    }
+}
