@@ -5,41 +5,27 @@ const Schedule = mongoose.model(
     "Agendamento",
     new Schema({
             clienteId: {
-                type: String,
-                // required: true
+                type: Schema.Types.ObjectId,
+                ref: "Usuarios",
+                required: true
             },
             clienteNome: {
                 type: String,
-                // required: true
+                required: true
             },
             clienteContato: {
                 type: String,
-                // required: true
-            },
-        /*
-            dia: {
-                type: String,
                 required: true
             },
-            hora: {
-                type: String,
-                required: true
-            },
-            mes: {
-                type: String,
-                required: true
-            },
-            ano: {
-                type: String,
-                required: true
-            },
-         */
-            servicosRequisitados: []
-
+            servicosRequisitados: [{
+                type: Schema.Types.ObjectId,
+                ref: "Servicos"
+            }]
         },
         {
             timestamps: true
         })
 );
+
 
 module.exports = Schedule;

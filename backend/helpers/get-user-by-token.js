@@ -8,10 +8,7 @@ const getUserByToken = async (token) => {
 
     try {
         const decoded = jwt.verify(token, 'nossosecret');
-        console.log('Decoded token:', decoded);
-
         const user = await User.findById(decoded.id);
-        console.log('Found user:', user);
 
         if (!user) {
             throw new Error("User not found!");

@@ -3,7 +3,6 @@ const getToken = (req) => {
 
     if (authHeader) {
         const token = authHeader.split(' ')[1];
-        console.log('Token:', token);
         return token;
     }
 
