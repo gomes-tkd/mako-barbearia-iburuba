@@ -30,7 +30,7 @@ export default async function registrar(data: {}, formData: FormData) {
         }
 
         return {
-            data: null,
+            data: data,
             ok: true,
             error: ""
         }

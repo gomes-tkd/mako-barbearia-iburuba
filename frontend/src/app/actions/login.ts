@@ -27,7 +27,7 @@ export default async function login(state: {}, formData: FormData) {
         });
 
         return {
-            data: null,
+            data,
             ok: true,
             error: ""
         }
