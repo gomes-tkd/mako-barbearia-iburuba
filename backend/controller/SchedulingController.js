@@ -102,9 +102,7 @@ module.exports = class SchedulingController {
         }
     }
 
-
-    static async getAllScheduling(req, res)
-    {
+    static async getAllScheduling(req, res)  {
         const id = req.params.id;
         const token = getToken(req);
 
