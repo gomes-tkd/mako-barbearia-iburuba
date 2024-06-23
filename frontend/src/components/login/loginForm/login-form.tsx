@@ -6,6 +6,7 @@ import ErrorMessage from "@/components/helpers/error-message";
 import Input from "@/components/input/input";
 import Link from "next/link";
 import styles from "./login-form.module.css";
+import login from "@/app/actions/login";
 
 function FormButton() {
     const { pending } = useFormStatus();
@@ -22,12 +23,24 @@ function FormButton() {
 }
 
 export default function LoginForm() {
+    const [state, action] = useFormState(login, {
+        data: null,
+        ok: false,
+        error: ""
+    });
+
+    React.useEffect(() => {
+        if(state.ok) {
+            window.location.href = "/conta";
+        }
+    }, [state.ok]);
 
     return (
         <>
-            <form action={""} className={styles.form}>
-                <Input label={"Usuário"} name={"email"} type={"text"} />
-                <Input label={"Senha"} name={"senha"} type={"password"} />
+            <form action={action} className={styles.form}>
+                <Input label="Usuário" name="username" type="text" />
+                <Input label="Senha" name="password" type="password" />
+                <ErrorMessage message={state.error} />
                 <FormButton />
             </form>
             <Link className={styles.perdeu} href="/login/perdeu">

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: "Logue na sua conta no site Mako Barbershop."
 }
 
-export default function Login() {
+export default async function Login() {
     return (
         <section className={"animeLeft"}>
             <h1 className={"title"}>Login</h1>
