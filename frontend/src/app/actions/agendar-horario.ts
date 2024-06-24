@@ -7,10 +7,11 @@ type AgendamentoProps = {
     horario: number,
     dia: number,
     mes: number,
-    ano: number
+    ano: number,
+    servicosRequisitados: string[]
 }
 
-export default async function agendarHorario({ clienteId, horario, dia, mes, ano }: AgendamentoProps) {
+export default async function agendarHorario({ clienteId, horario, dia, mes, ano, servicosRequisitados }: AgendamentoProps) {
     try {
         const token = cookies().get("token")?.value;
         console.log(token);
@@ -20,7 +21,7 @@ export default async function agendarHorario({ clienteId, horario, dia, mes, ano
         }
 
         const data = await api.post(`/schedule/${clienteId}/agendar`, {
-            clienteId, horario, dia, mes, ano, servicosRequisitados:["66774b5c3b131f05e238ca4c", "66774b653b131f05e238ca4f"]
+            clienteId, horario, dia, mes, ano, servicosRequisitados
         }, {
             headers: {
                 Authorization: `Bearer ${token}`,

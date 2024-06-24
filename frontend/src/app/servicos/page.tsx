@@ -10,12 +10,11 @@ type ServicosProps = {
 }
 
 const ServicosPage = async () => {
-    const data = (await getServicos());
 
     return (
         <div>
             <h1>Serviços disponibilizados:</h1>
-            <Servicos servicos={data} />
+            {/*<Servicos servicos={data} />*/}
         </div>
     );
 };
