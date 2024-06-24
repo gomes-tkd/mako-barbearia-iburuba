@@ -6,6 +6,7 @@ import Fidelidade from "@/components/perfil/fidelidade/fidelidade";
 import getUser from "@/app/actions/get-user";
 
 type UsuarioInfo = {
+    _id: string;
     nome: string;
     contato: string;
     email: string;
@@ -14,6 +15,7 @@ type UsuarioInfo = {
 export default async function ContaPage() {
     const { data } = await getUser();
     const usuario = (data as UsuarioInfo);
+
     return (
         <section className={"container animeLeft"}>
             <div className={styles.contaInfo}>
@@ -23,7 +25,7 @@ export default async function ContaPage() {
                 <Fidelidade />
                 {/*<CartaoFidelidade />*/}
                 <div className={styles.calendarioAgendamento}>
-                    <Calendario />
+                    <Calendario clienteId={usuario._id} />
                 </div>
                 <div className={styles.agendamentoLista}>
                     <h3>Agendamento: lista</h3>

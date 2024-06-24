@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ScheduleMeeting } from "react-schedule-meeting";
+import agendarHorario from "@/app/actions/agendar-horario";
 
 type AvailableTimeslot = {
     startTime: Date;
@@ -22,7 +23,8 @@ type StartTimeEventEmit = {
     resetSelectedTimeState: () => void;
 };
 
-export default function Calendario() {
+export default function Calendario({ clienteId }: { clienteId: string }) {
+
     const [isClient, setIsClient] = React.useState(false);
     const [time, setTime] = React.useState<Date | null>(null);
 
@@ -40,16 +42,39 @@ export default function Calendario() {
         setIsClient(true);
     }, []);
 
-    if (!availableTimeslots) return null;
-    if (!isClient) return null;
+    if (!availableTimeslots) {
+        return null;
+    }
+
+    if (!isClient) {
+        return null;
+    }
+
+    async function timeTeste(time: Date) {
+        let info = false;
+        // const timestamp = time.toISOString();
+        const horario = time.getTime();
+        const dia = time.getDate();
+        const mes = time.getMonth();
+        const ano = time.getFullYear();
+
+        info = await agendarHorario({ clienteId, horario, dia, mes, ano });
+
+        if(info) {
+            alert("Horário agendado com sucesso!!");
+        } else {
+            alert("Horário não pode ser agendado");
+        }
+
+    }
 
     return (
         <ScheduleMeeting
             borderRadius={8}
             primaryColor="#3f5b85"
-            eventDurationInMinutes={45}
+            eventDurationInMinutes={60}
             availableTimeslots={availableTimeslots}
-            onStartTimeSelect={availableTimeslot => setTime(availableTimeslot.startTime)}
+            onStartTimeSelect={({ startTime }) => timeTeste(startTime)}
         />
     );
 }
