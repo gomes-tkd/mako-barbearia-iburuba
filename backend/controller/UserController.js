@@ -10,11 +10,16 @@ const getUserByToken = require("../helpers/get-user-by-token");
 
 module.exports = class UserController {
     static async register(req, res) {
-        const { nome, contato, email, senha } = req.body;
+        const { nome, cpf, contato, email, senha, tipo_usuario } = req.body;
+        let tipoUsuario = "";
 
         // validations
         if (!nome) {
             return res.status(422).json({ message: "Campo nome é obrigatório" });
+        }
+
+        if (!cpf) {
+            return res.status(422).json({ message: "Campo cpf é obrigatório" });
         }
 
         if (!contato) {
@@ -36,6 +41,18 @@ module.exports = class UserController {
             return res.status(422).json({ message: "Email já existente. Por favor, informe outro." });
         }
 
+        const cpfExists = await User.findOne({ cpf });
+
+        if (cpfExists) {
+            return res.status(422).json({ message: "Email já existente. Por favor, informe outro." });
+        }
+
+        if (tipo_usuario === "") {
+            tipoUsuario = "cliente";
+        } else {
+            tipoUsuario = "adm";
+        }
+
         // create an encrypted user password
         const salt = await bcrypt.genSalt(12);
         const passwordHash = await bcrypt.hash(senha, salt);
@@ -43,10 +60,11 @@ module.exports = class UserController {
         // creating a new user
         const user = new User({
             nome,
+            cpf,
             contato,
             email,
             senha: passwordHash,
-            tipoUsuario: "cliente"
+            tipoUsuario
         });
 
         try {

@@ -26,13 +26,15 @@ export default function LoginForm() {
     const [state, action] = useFormState(login, {
         data: null,
         ok: false,
-        error: ""
+        error: "",
+        url: ""
     });
 
     React.useEffect(() => {
         if(state.ok) {
-            window.location.href = "/conta";
+            window.location.href = state.url;
         }
+
     }, [state.ok]);
 
     return (

@@ -28,8 +28,6 @@ export default async function agendarHorario({ clienteId, horario, dia, mes, ano
             }
         }).then(response => response.data);
 
-        console.log(data);
-
         return true;
     } catch (e) {
         return false;

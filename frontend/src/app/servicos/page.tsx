@@ -1,6 +1,7 @@
 import React from 'react';
 import getServicos from "@/app/actions/get-servicos";
 import Servicos from "@/components/servicos/servicos";
+import api from "@/functions/api";
 
 type ServicosProps = {
     servicos: {
@@ -10,11 +11,11 @@ type ServicosProps = {
 }
 
 const ServicosPage = async () => {
-
+    const servicos = getServicos() as unknown as ServicosProps[];
     return (
         <div>
             <h1>Serviços disponibilizados:</h1>
-            {/*<Servicos servicos={data} />*/}
+            {/*<Servicos dataServicos={servicos} />*/}
         </div>
     );
 };

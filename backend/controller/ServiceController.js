@@ -38,6 +38,10 @@ module.exports = class ServiceController {
         }
     }
 
+    static async getServiceById(req, res) {
+
+    }
+
     static async editarServico(req, res) {
         const id = req.params.id;
         const servicoId = req.params.servicoId;

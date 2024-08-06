@@ -8,6 +8,8 @@ type Usuario = {
     nome: string;
     email: string;
     contato: string;
+    tipoUsuario: string;
+    cpf: string;
 }
 
 export default async function getUser() {

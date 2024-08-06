@@ -1,0 +1,17 @@
+.comentarioContainer {
+  display: grid;
+  gap: 0.5rem 1rem;
+  padding: 1rem 0.5rem;
+}
+
+.textarea {
+  margin-top: 1rem;
+  resize: none;
+  padding: 1rem;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.textarea:hover {
+  border: 1px solid #fb0;
+}

@@ -26,7 +26,7 @@ module.exports = class CommentController {
         // creating a new commentary
         const comment = new Comment({
             autorId: user._id,
-            autorNome: user.name,
+            autorNome: user.nome,
             comentario
         });
 

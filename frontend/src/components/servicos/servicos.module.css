@@ -1,0 +1,30 @@
+.servicosFlex {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.servicosInfo {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: #eee;
+  gap: 20px;
+  border-radius: 5px;
+  padding: 1rem;
+  border: 1px solid transparent;
+}
+
+.servicosInfo:hover {
+  border: 1px solid #fb0;
+}
+
+.servicosLabel {
+  display: flex;
+  gap: 0 0.5rem;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-right: 1px solid #fb0;
+}

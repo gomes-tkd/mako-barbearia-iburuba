@@ -39,6 +39,7 @@ export default function CriarForm() {
         <>
             <form action={action} className={styles.form}>
                 <Input label={"Usuário"} name={"username"} type={"text"}/>
+                <Input label={"CPF"} name={"cpf"} type={"text"}/>
                 <Input label={"Telefone"} name={"contato"} type={"text"}/>
                 <Input label={"Email"} name={"email"} type={"email"}/>
                 <Input label={"Senha"} name={"password"} type={"password"}/>

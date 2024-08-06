@@ -18,7 +18,7 @@ const Schedule = mongoose.model(
                 required: true
             },
             servicosRequisitados: [{
-                type: Schema.Types.ObjectId,
+                type: Object,
                 ref: "Servicos"
             }]
         },

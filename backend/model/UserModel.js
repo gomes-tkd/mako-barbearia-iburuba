@@ -8,6 +8,10 @@ const User = mongoose.model(
                 type: String,
                 required: true
             },
+            cpf: {
+                type: String,
+                required: true
+            },
             contato: {
                 type: String,
                 required: true

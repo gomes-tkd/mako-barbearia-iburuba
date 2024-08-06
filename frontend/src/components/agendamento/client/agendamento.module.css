@@ -1,0 +1,32 @@
+.agendamentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.agendamentoInformacoes {
+  background-color: #eee;
+  padding: 1rem;
+  min-height: 20px;
+  min-width: 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  display: grid;
+  gap: 5px;
+  align-items: center;
+  padding: 5px;
+}
+
+.agendamentoInformacoes:hover {
+  border: 1px solid #fb0;
+}
+
+.agendamentoServicos {
+  padding: 0 1rem;
+}
+
+.agendamentoServicos li {
+  padding-top: 5px;
+}

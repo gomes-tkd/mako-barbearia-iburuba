@@ -10,6 +10,7 @@ type AvailableTimeslot = {
     id?: string | number | undefined;
 };
 
+
 export default function Calendario({ clienteId, dataServicos }: { clienteId: string, dataServicos: any }) {
     const [servicosRequisitados, setServicosRequisitados] = React.useState<string[]>([]);
     const [isClient, setIsClient] = React.useState(false);
@@ -21,7 +22,7 @@ export default function Calendario({ clienteId, dataServicos }: { clienteId: str
     })).map(slot => ({
         ...slot,
         startTime: new Date(slot.startTime.setHours(14, 0, 0, 0)),
-        endTime: new Date(slot.endTime.setHours(23, 0, 0, 0)),
+        endTime: new Date(slot.endTime.setHours(20, 0, 0, 0)),
     }));
 
     React.useEffect(() => {
@@ -43,7 +44,9 @@ export default function Calendario({ clienteId, dataServicos }: { clienteId: str
         const mes = time.getMonth();
         const ano = time.getFullYear();
 
-        info = await agendarHorario({ clienteId, horario, dia, mes, ano, servicosRequisitados });
+        info = await agendarHorario({
+            clienteId, horario, dia, mes, ano, servicosRequisitados
+        });
 
         if(info) {
             alert("Horário agendado com sucesso!!");
@@ -51,8 +54,6 @@ export default function Calendario({ clienteId, dataServicos }: { clienteId: str
             alert("Horário não pode ser agendado");
         }
     }
-
-    console.log(servicosRequisitados)
 
     return (
         <>
